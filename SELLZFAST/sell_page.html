@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>SellzFast - Sell Product</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="nav-left">
+
+            <div class="logo">
+
+                SellzFast
+
+            </div>
+
+            <div class="location">
+
+                <span>Location</span>
+
+                <strong id="user-location">
+
+                    Bhubaneswar 751030
+
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-bar">
+
+            <select>
+
+                <option>All</option>
+
+                <option>Cars</option>
+
+                <option>Bikes</option>
+
+                <option>Mobiles</option>
+
+                <option>Electronics</option>
+
+            </select>
+
+            <input
+                type="text"
+                placeholder="Search SellzFast">
+
+            <button>
+
+                🔍
+
+            </button>
+
+        </div>
+
+
+
+        <!-- RIGHT -->
+
+        <div class="nav-right">
+
+
+            <button
+                class="login-btn">
+
+                Login
+
+            </button>
+
+
+
+            <button id="theme-toggle">
+
+                🌙
+
+            </button>
+
+
+
+            <button
+                class="sell-btn"
+
+                onclick="window.location.href='index.html'">
+
+                Home
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= SELL PAGE ================= -->
+
+    <section class="sell-page">
+
+    <!-- LEFT SIDE -->
+
+    <div class="upload-section">
+
+        <h2>Upload Photos</h2>
+
+        <div class="upload-area">
+
+            <input
+            type="file"
+            id="images"
+            multiple
+            accept="image/*">
+
+            <p>
+
+                📷 Drag & Drop
+
+                <br>
+
+                or click to upload
+
+            </p>
+
+        </div>
+
+
+        <div class="preview-container">
+
+            <div class="preview-box">
+
+                Preview
+
+            </div>
+
+            <div class="preview-box">
+
+                Preview
+
+            </div>
+
+            <div class="preview-box">
+
+                Preview
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="sell-box">
+
+        <h1>
+
+            List an item for auction
+
+        </h1>
+
+        <p class="sell-subtitle">
+
+            Sell anything quickly on SellzFast 🚀
+
+        </p>
+
+
+
+        <form class="sell-form">
+
+            <div class="form-group">
+
+                <label>
+
+                    Product Title
+
+                </label>
+
+                <input
+
+                type="text"
+
+                placeholder="e.g. iPhone 15 Pro">
+
+            </div>
+
+
+            <div class="double-fields">
+
+                <div class="form-group">
+
+                    <label>
+
+                        Category
+
+                    </label>
+
+                    <select>
+
+                        <option>
+
+                            Select category
+
+                        </option>
+
+                        <option>
+
+                            Electronics
+
+                        </option>
+
+                        <option>
+
+                            Vehicles
+
+                        </option>
+
+                        <option>
+
+                            Fashion
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+
+                        Subcategory
+
+                    </label>
+
+                    <select>
+
+                        <option>
+
+                            Select subcategory
+
+                        </option>
+
+                        <option>
+
+                            Mobiles
+
+                        </option>
+
+                        <option>
+
+                            Laptops
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+
+                    Description
+
+                </label>
+
+                <textarea
+
+                placeholder=
+
+                "Describe your product">
+
+                </textarea>
+
+            </div>
+
+
+            <div class="triple-fields">
+
+                <div class="form-group">
+
+                    <label>
+
+                        Starting Bid (₹)
+
+                    </label>
+
+                    <input
+
+                    type="number"
+
+                    placeholder="1000">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+
+                        Buy Now Price (₹)
+
+                    </label>
+
+                    <input
+
+                    type="number"
+
+                    placeholder="2500">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+
+                        Duration (hours)
+
+                    </label>
+
+                    <input
+
+                    type="number"
+
+                    placeholder="24">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+
+                    Location
+
+                </label>
+
+                <input
+
+                id="sell-location"
+
+                readonly>
+
+            </div>
+
+
+
+            <div class="sell-actions">
+
+                <button
+
+                class="publish-btn"
+
+                type="submit">
+
+                    🚀 Publish Listing
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+    <!-- LOCATION SCRIPT -->
+
+    <script>
+
+        const sellLocation =
+
+            document.getElementById(
+
+                "sell-location"
+
+            );
+
+
+        if (navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(
+
+                async(position) => {
+
+
+                    const lat =
+
+                        position.coords.latitude;
+
+
+                    const lon =
+
+                        position.coords.longitude;
+
+
+
+                    try {
+
+
+                        const response =
+
+                            await fetch(
+
+                                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+
+                            );
+
+
+                        const data =
+
+                            await response.json();
+
+
+
+                        const city =
+
+                            data.address.city ||
+
+                            data.address.town ||
+
+                            data.address.village;
+
+
+
+                        const pincode =
+
+                            data.address.postcode;
+
+
+
+                        sellLocation.value =
+
+                            `${city} ${pincode}`;
+
+
+                    }
+
+                    catch {
+
+                        sellLocation.value =
+
+                            "Location unavailable";
+
+                    }
+
+                }
+
+            );
+
+        }
+
+    </script>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SellzFast</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR TOP ================= -->
+    <header class="navbar">
+
+        <!-- LEFT -->
+        <div class="nav-left">
+
+            <div class="logo">
+                SellzFast
+            </div>
+
+            <div class="location">
+                <span>Location</span>
+                <strong id="user-location">Detecting...</strong>
+            </div>
+
+        </div>
+
+        <!-- CENTER SEARCH -->
+        <div class="search-bar">
+            <select>
+                <option>All</option>
+                <option>Cars</option>
+                <option>Bikes</option>
+                <option>Mobiles</option>
+                <option>Home</option>
+                <option>Electronics</option>
+                <option>Fashion</option>
+            </select>
+
+            <input type="text" placeholder="Search SellzFast">
+
+            <button>🔍</button>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="nav-right">
+
+            <!-- LOGIN BUTTON -->
+
+            <!-- <div class="hello_moto">
+                <button id="open-login" class="login-btn">
+                    Login
+                </button>
+            </div> -->
+
+            <div class="hello_moto">
+                <button id="open-login" class="login-btn">
+                    Login
+                </button>
+                <div id="profile-box" class="profile-box">
+                    <img src="https://ui-avatars.com/api/?name=S" alt="profile">
+                </div>
+            </div>
+
+
+            <!-- LOGIN MODAL -->
+
+            <div class="auth-modal" id="login-modal">
+                <div class="auth-box">
+                    <span class="close-modal">&times;</span>
+                    <h2>Welcome back</h2>
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <button class="auth-submit">
+                        Sign in
+                    </button>
+                    <p>
+                        Don't have an account?
+                        <span id="open-signup">
+                            Sign up
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- SIGNUP MODAL -->
+            <div class="auth-modal" id="signup-modal">
+                <div class="auth-box">
+                    <span class="close-signup">&times;</span>
+                    <h2>Create account</h2>
+                    <input type="text" placeholder="Full name">
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <button class="auth-submit">
+                        Create account
+                    </button>
+
+                    <p>
+                        Already a member?
+                        <span id="open-login-back">
+                            Sign in
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- SELL -->
+            <button class="sell-btn" onclick="window.location.href='sell_page.html'">
+
+                Sell
+
+            </button>
+
+            <!-- LANGUAGE -->
+            <div class="language">
+                <span id="current-lang">EN</span>
+                <div class="lang-dropdown">
+                    <p data-lang="EN">English</p>
+                    <p data-lang="HI">हिंदी</p>
+                    <p data-lang="BN">বাংলা</p>
+                </div>
+            </div>
+
+            <!-- THEME -->
+            <button id="theme-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-moon">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008" />
+                </svg></button>
+
+            <!-- MOBILE MENU -->
+
+            <div class="mobile-menu-wrapper">
+                <button class="mobile-menu-btn">☰</button>
+                <div class="mobile-dropdown">
+                    <p id="mobile-sell" onclick="window.location.href='sell_page.html'">💰 Sell</p>
+                    <p id="mobile-wishlist">❤️ Wishlist</p>
+                    <p id="mobile-bidding">🔥 Live Bidding</p>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- ================= NAVBAR BOTTOM ================= -->
+    <nav class="sub-navbar" id="mobile-menu">
+
+
+        <div class="center-menu">
+            <span class="menu-all active-subnav" data-category="all">
+
+                ☰ All
+
+            </span>
+
+            <span data-category="cars">
+                Cars
+            </span>
+
+            <span data-category="bikes">
+                Bikes
+            </span>
+
+            <span data-category="electronics">
+                Electronics
+            </span>
+
+            <span data-category="furniture">
+                Furniture
+            </span>
+
+            <span data-category="home">
+                Home
+            </span>
+
+            <span data-category="properties">
+                Properties
+            </span>
+
+            <span data-category="food">
+                Food & Grocery
+            </span>
+
+            <span data-category="beauty">
+                Beauty
+            </span>
+
+            <span data-category="sports">
+                Sports
+            </span>
+
+            <span data-category="books">
+                Books
+            </span>
+
+            <span data-category="wishlist">
+                Wishlist
+            </span>
+
+            <span data-category="bidding">
+                Live Bidding
+            </span>
+        </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero-carousel">
+
+        <div class="carousel">
+
+            <!-- SLIDES : tablet mobile laptop-->
+            <div class="slides">
+
+                <div class="slide active">
+                    <picture>
+                        <!-- 💻 DESKTOP -->
+                        <source media="(min-width: 1024px)"
+                            srcset="https://res.cloudinary.com/dcaleplje/image/upload/v1777845248/Airbrush-IMAGE-ENHANCER-1777845208425-1777845208426_rkhoai.png">
+                        <!-- 📱 TABLET -->
+                        <source media="(min-width: 767px)"
+                            srcset="https://res.cloudinary.com/dcaleplje/image/upload/v1777836127/Dark_Blue_Modern_Geometric_Simple_Feature_Section_Website_UI_Prototype_iwupfi.png">
+                        <!-- 📱 MOBILE (fallback IMG) -->
+                        <img src="https://res.cloudinary.com/dcaleplje/image/upload/v1777836127/Dark_Blue_Modern_Geometric_Simple_Feature_Section_Website_UI_Prototype_iwupfi.png"
+                            alt="SellzFast Banner">
+                    </picture>
+                    <div class="content">
+                        <h2>🔥 Big Deals</h2>
+                        <p>Up to 60% OFF</p>
+                    </div>
+                </div>
+
+                <div class="slide active">
+                    <picture>
+
+                        <!-- 💻 DESKTOP -->
+                        <source media="(min-width: 1025px)"
+                            srcset="https://res.cloudinary.com/dcaleplje/image/upload/v1778098131/SELLZFAST_gs8wxe.png">
+                        <!-- 📱 TABLET -->
+                        <source media="(min-width: 752px)"
+                            srcset="https://res.cloudinary.com/dcaleplje/image/upload/v1778095128/White_Simple_Light_Blogger_Bio_Link_Website_ts1z6x.png">
+                        <!-- 📱 MOBILE (fallback IMG) -->
+                        <img src="https://res.cloudinary.com/dcaleplje/image/upload/v1778095944/Untitled_design_efbrx9.png"
+                            alt="SellzFast Banner">
+                    </picture>
+                    <div class="content">
+                        <!-- <h2>🔥 Big Deals</h2> -->
+                        <!-- <p>Up to 60% OFF</p> -->
+                    </div>
+                </div>
+
+
+
+                <div class="slide">
+                    <picture>
+                        <!-- 💻 DESKTOP -->
+                        <source media="(min-width: 1025px)"
+                            srcset="https://res.cloudinary.com/dcaleplje/image/upload/v1778693999/Shop_your_way_get_rewards_qe7kyn.png">
+                        <!-- 📱 TABLET -->
+                        <source media="(min-width: 752px)"
+                            srcset="https://res.cloudinary.com/dcaleplje/image/upload/v1778692700/sell_buy_nsgmah.png">
+                        <!-- 📱 MOBILE (fallback IMG) -->
+                        <img src="https://res.cloudinary.com/dcaleplje/image/upload/v1778692700/sell_buy_nsgmah.png"
+                            alt="SellzFast Banner">
+                    </picture>
+                    <div class="content">
+                        <h2>📱 Latest Products</h2>
+                        <p>New arrivals daily</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <picture>
+                        <!-- 💻 DESKTOP -->
+                        <source media="(min-width: 1025px)"
+                            srcset="https://res.cloudinary.com/dcaleplje/image/upload/v1778695147/Shop_your_way_get_rewards_1_ywdmhx.png">
+                        <!-- 📱 TABLET -->
+                        <source media="(min-width: 752px)"
+                            srcset="https://res.cloudinary.com/dcaleplje/image/upload/v1778694480/SellzFast_1_fmv1yf.png">
+                        <!-- 📱 MOBILE (fallback IMG) -->
+                        <img src="https://res.cloudinary.com/dcaleplje/image/upload/v1778694480/SellzFast_1_fmv1yf.png"
+                            alt="SellzFast Banner">
+                    </picture>
+                    <div class="content">
+                        <!-- <h2>🏠 Furniture Sale</h2>
+                        <p>Upgrade your home</p> -->
+                    </div>
+                </div>
+
+
+                <div class="slide">
+                    <picture>
+                        <!-- 💻 DESKTOP -->
+                        <source media="(min-width: 1025px)"
+                            srcset="https://res.cloudinary.com/dcaleplje/image/upload/v1778697492/Sellzfast_2_hqyksk.png">
+                        <!-- 📱 TABLET -->
+                        <source media="(min-width: 752px)"
+                            srcset="https://res.cloudinary.com/dcaleplje/image/upload/v1778695821/Drive_your_dream_car_at_the_best_price._diufef.png">
+                        <!-- 📱 MOBILE (fallback IMG) -->
+                        <img src="https://res.cloudinary.com/dcaleplje/image/upload/v1778695821/Drive_your_dream_car_at_the_best_price._diufef.png"
+                            alt="SellzFast Banner">
+                    </picture>
+                    <div class="content">
+                        <h2>⚡ Live Bidding Deals</h2>
+                        <p>Win at lowest price</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ARROWS -->
+            <button class="arrow left" aria-label="Previous slide">&#10094;</button>
+            <button class="arrow right" aria-label="Previous slide">&#10095;</button>
+
+            <!-- DOTS -->
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MARKETPLACE SECTION ================= -->
+    <section class="marketplace-section">
+
+        <!-- ============ LEFT SIDEBAR ============ -->
+        <aside class="category-sidebar">
+            <h2>Browse Categories</h2>
+
+            <div class="category-group">
+                <h3>📱 Electronics</h3>
+                <ul>
+                    <li data-category="mobiles">Mobiles</li>
+                    <li data-category="laptops">Laptops</li>
+                    <li data-category="headphones">Headphones</li>
+                    <li data-category="gaming">Gaming</li>
+                    <li data-category="cameras">Cameras</li>
+                    <li data-category="monitors">Monitors</li>
+                </ul>
+            </div>
+
+            <div class="category-group">
+                <h3>🚗 Vehicles</h3>
+                <ul>
+                    <li data-category="cars">Cars</li>
+                    <li data-category="bikes">Bikes</li>
+                    <li data-category="ev">EV Vehicles</li>
+                    <li data-category="accessories">Accessories</li>
+                </ul>
+            </div>
+
+            <div class="category-group">
+                <h3>🏠 Home</h3>
+                <ul>
+                    <li data-category="furniture">Furniture</li>
+                    <li data-category="kitchen">Kitchen</li>
+                    <li data-category="decor">Decor</li>
+                    <li data-category="lighting">Lighting</li>
+                </ul>
+            </div>
+
+            <div class="category-group">
+                <h3>👕 Fashion</h3>
+                <ul>
+                    <li data-category="men">Men</li>
+                    <li data-category="women">Women</li>
+                    <li data-category="shoes">Shoes</li>
+                    <li data-category="watches">Watches</li>
+                </ul>
+            </div>
+
+            <div class="category-group">
+                <h3>💄 Beauty</h3>
+                <ul>
+                    <li data-category="skincare">Skincare</li>
+                    <li data-category="perfumes">Perfumes</li>
+                    <li data-category="haircare">Haircare</li>
+                </ul>
+            </div>
+
+        </aside>
+
+
+        <!-- ============ PRODUCT GRID ============ -->
+
+        <main class="product-grid">
+
+            <!-- CARD -->
+            <div class="product-card bidding" data-status="🔥 Live Bidding">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200">
+                <h4>iPhone 15 Pro</h4>
+                <p>₹89,999</p>
+            </div>
+
+            <div class="product-card normal" data-status="🛒 Direct Buy">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200">
+                <h4>Luxury Car</h4>
+                <p>₹12,00,000</p>
+            </div>
+
+            <div class="product-card bidding" data-status="🔥 Live Bidding">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200">
+                <h4>Modern Sofa</h4>
+                <p>₹22,999</p>
+            </div>
+
+            <div class="product-card normal" data-status="🛒 Direct Buy">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200">
+                <h4>Smart Watch</h4>
+                <p>₹7,999</p>
+            </div>
+
+            <!-- ROW 2 -->
+            <div class="product-card bidding" data-status="🔥 Live Bidding">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200">
+                <h4>Nike Shoes</h4>
+                <p>₹4,499</p>
+            </div>
+
+            <div class="product-card normal" data-status="🛒 Direct Buy">
+                <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200">
+                <h4>Gaming PC</h4>
+                <p>₹75,000</p>
+            </div>
+
+            <div class="product-card bidding" data-status="🔥 Live Bidding">
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1200">
+                <h4>Designer Jacket</h4>
+                <p>₹3,999</p>
+            </div>
+
+            <div class="product-card normal" data-status="🛒 Direct Buy">
+                <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=1200">
+                <h4>MacBook Pro</h4>
+                <p>₹1,15,000</p>
+            </div>
+        </main>
+
+        <!-- PRODUCT DETAILS MODAL -->
+
+        <div class="product-modal" id="product-modal">
+            <div class="product-popup">
+                <button class="close-product-modal">✕</button>
+                <div class="product-popup-image">
+                    <img id="popup-image" src="">
+                </div>
+
+                <!-- CONTENT -->
+                <div class="product-popup-content">
+                    <span class="popup-badge">Live Auction</span>
+                    <h2 id="popup-title">Product Name</h2>
+                    <p class="popup-seller">Listed by SellzFast</p>
+                    <p id="popup-description">
+                        Premium quality product with secure
+                        checkout and live bidding support.
+                    </p>
+
+                    <!-- BID BOX -->
+                    <div class="popup-bid-box">
+                        <p class="popup-label">STARTING PRICE</p>
+                        <h1 id="popup-price">₹0</h1>
+                        <p class="popup-time">⏰ Auction ending soon</p>
+                    </div>
+
+                    <!-- ACTION BUTTONS -->
+                    <div class="popup-actions">
+                        <div class="bid-area">
+                            <input type="number" class="bid-input" placeholder="Enter bid amount">
+                            <button class="bid-btn">
+                                🔥 Place Bid
+                            </button>
+                        </div>
+
+                        <button class="buy-btn">
+                            🛒 Buy Now
+                        </button>
+
+                        <button class="watch-btn">
+                            ❤️ Watchlist
+                        </button>
+                    </div>
+
+
+                    <!-- EXTRA DETAILS -->
+                    <div class="popup-extra">
+                        <div class="extra-box">
+                            <h4>Condition</h4>
+                            <p>Excellent</p>
+                        </div>
+
+                        <div class="extra-box">
+                            <h4>Delivery</h4>
+                            <p>Free Shipping</p>
+                        </div>
+                        <div class="extra-box">
+                            <h4>Seller Rating</h4>
+                            <p>4.9 ★</p>
+                        </div>
+                    </div>
+
+                    <!-- CHAT BOX -->
+                    <div class="popup-chat-box">
+                        <h3>💬 Chat with seller</h3>
+                        <p>Login to start chatting with seller.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ RIGHT STATUS PANEL ============ -->
+
+        <aside class="status-panel">
+            <h2>Listing Status</h2>
+
+            <div class="status-box">
+                <h3>Selected Product</h3>
+                <p id="selected-product">Click a product</p>
+            </div>
+
+            <div class="status-box">
+                <h3>Status</h3>
+                <p id="selected-status">---</p>
+            </div>
+
+            <div class="status-box live-box">
+                <h3>🔥 Live Auctions</h3>
+                <p>12 Bids Running</p>
+            </div>
+
+            <div class="status-box direct-box">
+                <h3>🛒 Instant Buy</h3>
+                <p>Fast Checkout Available</p>
+            </div>
+        </aside>
+    </section>
+
+
+    <!-- ================= PAGINATION ================= -->
+
+    <div class="pagination">
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <button class="page-btn">5</button>
+        <button class="page-btn">6</button>
+        <button class="page-btn">7</button>
+        <button class="page-btn">8</button>
+        <button class="page-btn">9</button>
+        <button class="page-btn">10</button>
+    </div>
+
+    <!-- ================= CHATBOT ================= -->
+
+    <div class="chatbot-wrapper">
+
+        <!-- CHAT ICON -->
+        <button class="chatbot-toggle" id="chatbot-toggle">💬</button>
+
+        <!-- CHATBOX -->
+        <div class="chatbot-box" id="chatbot-box">
+            <!-- HEADER -->
+            <div class="chatbot-header">
+                <h3>SellzFast AI</h3>
+                <span id="close-chatbot">✕</span>
+            </div>
+            <!-- BODY -->
+            <div class="chatbot-body" id="chatbot-body">
+                <div class="bot-message">
+                    👋 Hello! How can I help you today?
+                </div>
+            </div>
+            <!-- INPUT -->
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Type a message...">
+                <button id="send-chat">
+                    ➤
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- LOGO -->
+
+            <div class="footer-box">
+                <h2 class="footer-logo">SellzFast</h2>
+                <p>
+                    Buy, sell and bid on premium products with secure checkout
+                    and live auctions.
+                </p>
+            </div>
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+
+                <a href="#">Home</a>
+                <a href="#">Categories</a>
+                <a href="#">Live Bidding</a>
+                <a href="#">Wishlist</a>
+                <a href="#">Sell Product</a>
+            </div>
+
+            <!-- SUPPORT -->
+
+            <div class="footer-box">
+                <h3>Support</h3>
+
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
+
+            <!-- CONTACT -->
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+
+                <p>📍 Bhubaneswar, India</p>
+                <p>📧 support@sellzfast.com</p>
+                <p>📞 +91 9876543210</p>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM -->
+
+        <div class="footer-bottom">
+            © 2026 SellzFast. All rights reserved.
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
